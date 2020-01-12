@@ -27,8 +27,9 @@ public class JpaRunner implements ApplicationRunner {
         Study study = new Study();
         study.setName("Spring Data JPA");
 
+        account.addStudy(study);
 
-        account.getStudies().add(study);
+
 
         Session session = entityManager.unwrap(Session.class);
         session.save(account);
