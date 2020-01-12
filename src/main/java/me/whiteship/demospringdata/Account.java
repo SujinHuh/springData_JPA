@@ -24,6 +24,12 @@ public class Account {
     @Transient
     public String no;
 
+//    @Embedded
+    private Address address;
+
+//    @Embedded
+//    private Address officeAddress;
+
     public Long getId() {
         return id;
     }
