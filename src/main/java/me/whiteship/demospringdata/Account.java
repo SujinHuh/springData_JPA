@@ -16,26 +16,17 @@ public class Account {
 
     private String password;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date created = new Date();
 
-    public String yes;
 
-    @Transient
-    public String no;
 
-    @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "street", column = @Column(name = "home_street"))
-    })
-    private Address address;
 
-//    @Embedded
-//    private Address officeAddress;
 
-    public Long getId() {
-        return id;
-    }
+
+
+
+
+
+    public Long getId() { return id; }
 
     public void setId(Long id) {
         this.id = id;
