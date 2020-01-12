@@ -35,5 +35,11 @@ public class JpaRunner implements ApplicationRunner {
         session.save(account);
         session.save(study);
 
+
+        Account sujin = session.load(Account.class, account.getId());
+        sujin.setUsername("SujinONE");
+        System.out.println("========================");
+        System.out.println(sujin.getStudies());
+
     }
 }
