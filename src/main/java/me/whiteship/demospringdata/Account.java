@@ -24,7 +24,10 @@ public class Account {
     @Transient
     public String no;
 
-//    @Embedded
+    @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "street", column = @Column(name = "home_street"))
+    })
     private Address address;
 
 //    @Embedded
