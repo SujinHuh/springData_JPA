@@ -13,6 +13,8 @@ public class Study {
 
     private  String name;
 
+    @ManyToOne
+    private Account owner;
 
     public Long getId() {
         return id;
