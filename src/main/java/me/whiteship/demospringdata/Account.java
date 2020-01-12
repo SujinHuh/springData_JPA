@@ -4,6 +4,8 @@ package me.whiteship.demospringdata;
 import javax.persistence.*;
 import javax.transaction.Transactional;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Account {
@@ -16,15 +18,16 @@ public class Account {
 
     private String password;
 
+    @OneToMany
+    private Set<Study> studies = new HashSet<>();
 
+    public Set<Study> getStudies() {
+        return studies;
+    }
 
-
-
-
-
-
-
-
+    public void setStudies(Set<Study> studies) {
+        this.studies = studies;
+    }
 
     public Long getId() { return id; }
 
