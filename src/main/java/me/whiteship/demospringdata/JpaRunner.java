@@ -7,7 +7,10 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Component
 @Transactional
@@ -19,37 +22,12 @@ public class JpaRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-//
-//        Post post = new Post();
-//        post.setTitle("Spring DATA START!!!");
-//
-//        Comment comment = new Comment();
-//        comment.setComment("빨리 하고 싶다.");
-//        post.addComment(comment);
-//
-//        Comment comment1 = new Comment();
-//        comment1.setComment("금방 할 수 있다!");
-//        post.addComment(comment1);
 
+        TypedQuery<Post> query = entityManager.createQuery("SELECT p FROM Post AS p", Post.class);
 
-
-        Session session = entityManager.unwrap(Session.class);
-       // session.save(post);
-
-        Post post = session.get(Post.class,1l);
-        System.out.println("==========");
-        System.out.println(post.getTitle());
-
-//        Comment comment = session.get(Comment.class, 2l);
-//        System.out.println("==========");
-//        System.out.println(comment.getComment());
-//        System.out.println(comment.getPost().getTitle());
-//
-        post.getComments().forEach(c -> {
-            System.out.println("-----------");
-            System.out.println(c.getComment());
-
-        });
+        List<Post> posts = query.getResultList();
+        posts.forEach(System.out::println);
 
     }
+
 }
