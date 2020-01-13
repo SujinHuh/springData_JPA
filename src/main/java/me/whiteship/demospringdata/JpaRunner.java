@@ -36,9 +36,13 @@ public class JpaRunner implements ApplicationRunner {
         Session session = entityManager.unwrap(Session.class);
        // session.save(post);
 
-        Post post = session.get(Post.class,1l);
-        System.out.println("==========");
-        System.out.println(post.getTitle());
+//        Post post = session.get(Post.class,1l);
+//        System.out.println("==========");
+//        System.out.println(post.getTitle());
 
+        Comment comment = session.get(Comment.class, 2l);
+        System.out.println("==========");
+        System.out.println(comment.getComment());
+        System.out.println(comment.getPost().getTitle());
     }
 }
