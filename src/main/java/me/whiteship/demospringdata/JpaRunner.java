@@ -19,23 +19,26 @@ public class JpaRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+//
+//        Post post = new Post();
+//        post.setTitle("Spring DATA START!!!");
+//
+//        Comment comment = new Comment();
+//        comment.setComment("빨리 하고 싶다.");
+//        post.addComment(comment);
+//
+//        Comment comment1 = new Comment();
+//        comment1.setComment("금방 할 수 있다!");
+//        post.addComment(comment1);
 
-        Post post = new Post();
-        post.setTitle("Spring DATA START!!!");
 
-        Comment comment = new Comment();
-        comment.setComment("빨리 하고 싶다.");
-        post.addComment(comment);
-
-        Comment comment1 = new Comment();
-        comment1.setComment("금방 할 수 있다!");
-        post.addComment(comment1);
 
         Session session = entityManager.unwrap(Session.class);
-        session.save(post);
+       // session.save(post);
 
-//        Post post1 = session.get(Post.class,1l);
-//        session.delete(post);
+        Post post = session.get(Post.class,1l);
+        System.out.println("==========");
+        System.out.println(post.getTitle());
 
     }
 }
