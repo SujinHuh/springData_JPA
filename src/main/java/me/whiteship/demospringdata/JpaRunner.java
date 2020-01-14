@@ -21,12 +21,13 @@ import java.util.List;
 public class JpaRunner implements ApplicationRunner {
 
     @Autowired
-    PostRpository postRpository;
+   Sujin sujin;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        postRpository.findAll().forEach(System.out::println);
+        System.out.println("===============");
+        System.out.println(sujin.getName());
 
     }
 
