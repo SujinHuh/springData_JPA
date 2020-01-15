@@ -62,6 +62,12 @@ public class PostRpositoryTest {
         assertThat(page.getSize()).isEqualTo(10);
         assertThat(page.getNumberOfElements()).isEqualTo(1);
 
+        //When
+        long hicount = postRpository.countByTitleContains("Hi");
+
+        //Then
+        assertThat(hicount).isEqualTo(1);
+
     }
 
 }

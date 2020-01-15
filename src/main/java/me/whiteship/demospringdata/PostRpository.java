@@ -7,5 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface PostRpository extends JpaRepository<Post,Long> {
 
     Page<Post> findByTitleContains(String titile, Pageable pageable);
+
+        long countByTitleContains(String title);
 }
 
