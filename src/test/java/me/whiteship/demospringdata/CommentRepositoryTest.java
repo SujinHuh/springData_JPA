@@ -23,10 +23,8 @@ public class CommentRepositoryTest {
     @Test
     public void crud(){
 
-        Comment comment = commentRepository.findById(100l);
+        List<Comment> comments = commentRepository.findAll();
+        assertThat(comments).isEmpty();
 
-        if(comment == null) {
-            throw new IllegalArgumentException();
-        }
     }
 }
