@@ -22,20 +22,11 @@ public class CommentRepositoryTest {
 
     @Test
     public void crud(){
-//        Comment comment = new Comment();
-//        comment.setComment("Hi Spring");
-//        commentRepository.save(comment);
-//
-//        List<Comment> all = commentRepository.findAll();
-//        assertThat(all.size()).isEqualTo(1);
-//
-//        long count = commentRepository.count();
-//        assertThat(count).isEqualTo(1);
 
-        Optional<Comment> byId = commentRepository.findById(100l);
-        assertThat(byId).isEmpty();
-        Comment comment = byId.orElseThrow(IllegalArgumentException::new);
+        Comment comment = commentRepository.findById(100l);
 
-
+        if(comment == null) {
+            throw new IllegalArgumentException();
+        }
     }
 }
