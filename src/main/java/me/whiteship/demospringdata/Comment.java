@@ -1,6 +1,7 @@
 package me.whiteship.demospringdata;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Comment {
@@ -12,6 +13,10 @@ public class Comment {
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Post post;
+
+    private Date created;
+
+    private Integer likeCount;
 
     public Long getId() {
         return id;
@@ -36,4 +41,22 @@ public class Comment {
     public void setPost(Post post) {
         this.post = post;
     }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public Integer getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(Integer likeCount) {
+        this.likeCount = likeCount;
+    }
 }
+
+
