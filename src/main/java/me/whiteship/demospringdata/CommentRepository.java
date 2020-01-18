@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface CommentRepository extends MyRepository<Comment,Long>{
 
-    List<Comment> findByCommentContainsIgnoreCaseAndLikeCountGreaterThan(String keyword,Integer count);
+    List<Comment> findByCommentContainsIgnoreCaseOrderByLikeCountAsc(String keyword);
 }
