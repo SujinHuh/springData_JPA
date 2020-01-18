@@ -24,7 +24,7 @@ public class CommentRepositoryTest {
         comment.setComment("spring data jpa");
         commentRepository.save(comment);
 
-        List<Comment> comments = commentRepository.findByCommentContains("Spring");
+        List<Comment> comments = commentRepository.findByCommentContainsIgnoreCase("Spring");
         assertThat(comments.size()).isEqualTo(1);
     }
 }
