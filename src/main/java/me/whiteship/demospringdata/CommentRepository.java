@@ -9,9 +9,5 @@ import java.util.List;
 
 public interface CommentRepository extends MyRepository<Comment,Long>{
 
-
-
     List<Comment> findByCommentContains(String keyword);
-
-    Page<Comment> findByLikeCountGreaterThanAndPost(int likeCount, Post poste, Pageable pageable);
 }
